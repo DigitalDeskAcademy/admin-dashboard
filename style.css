@@ -13,6 +13,7 @@
 :root {
   --primary-color: #1992d4;
   --secondary-color: #facc15;
+  font-size: calc(0.625rem + 0.4vw);
 }
 
 /* Set a base font size and family */
@@ -52,8 +53,6 @@ body {
   gap: 1rem;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.5);
   z-index: 1;
-
-
 }
 #main-logo {
   height: 3rem;
@@ -142,19 +141,31 @@ body {
   grid-template-columns: auto auto auto;
   justify-content: end;
   align-self: center;
-  gap: 2.5rem;
+  align-items: center;
+  gap: 2rem;
 }
 
-.user-item-2::after{
-    content: "";
-    
+.header-icon {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.user-avatar {
+  height: 3rem;
+  width: 3rem;
+}
+
+.user-avatar-large {
+  height: 60px;
+  width: 60px;
 }
 .user-card {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
   height: 60px;
   align-content: center;
+  padding-left: 0.5rem;
 }
 
 .user-welcome {
@@ -216,8 +227,11 @@ body {
 
 .announcements-grid {
   display: grid;
-  align-items: center;
+  grid-template-rows: auto auto auto;
+  grid-auto-rows: min-content; /* Ensures rows only take as much space as needed */
   border-radius: 8px;
+  max-width: 600px; /* Limit the maximum width of the grid */
+  margin: 0 auto; /* Center the grid horizontally */
 }
 
 .announcements-card {
@@ -225,7 +239,7 @@ body {
   flex-direction: column;
   background-color: white;
   font-weight: 600;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -254,7 +268,9 @@ body {
 .announcements-card:last-child {
   border-bottom-left-radius: 10px; /* Adjust radius as needed */
   border-bottom-right-radius: 10px; /* Adjust radius as needed */
+  padding-bottom: .5rem;
 }
+
 
 .trending {
   grid-area: trending;
@@ -263,7 +279,6 @@ body {
   grid-row: 3 / 4;
   padding: 0 2rem 2rem 0;
   background-color: #dcdfe9;
-  
 }
 .trending-grid {
   display: grid;
@@ -271,22 +286,46 @@ body {
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  gap: 0.5em;
+  
+  
 }
 .trending-item {
   display: flex;
-  padding: 1rem;
+  align-items: center;
+  gap: .5rem;
+  padding-left: 3rem;
+}
+
+.trending-item img{
+    margin-right: 10px;
+    width: 3rem;
+    height: 3rem;
+}
+.trending-item .text-container {
+    display: flex;
+    flex-direction: column;
+}
+.trending-item .username {
+    font-weight: bold; /* Optional: make the username bold */
+}
+
+.trending-item .description {
+    font-size: 0.9em; /* Optional: make the description slightly smaller */
+    color: #555; /* Optional: change the text color */
 }
 
 /* Common button styling */
 .common-button {
   background-color: #007bff; /* Button background color */
   color: #ffffff; /* Button text color */
-  padding: 10px 15px;
+  padding: 10px 25px;
   border-radius: 8px; /* Rounded corners */
   font-size: 1rem; /* Font size */
   transition: background-color 0.3s ease; /* Smooth background color transition */
   cursor: pointer;
 }
+
 
 .common-button:hover {
   background-color: #0056b3; /* Darker background on hover */
